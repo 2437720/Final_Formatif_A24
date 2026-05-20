@@ -1,7 +1,7 @@
 <div style="padding: 20px">
   <h1>Animation Angular</h1>
   <button mat-raised-button color="accent" (click)="AnimerUneFois()">Animer une fois</button>
-  <button mat-raised-button color="accent">Animer en boucle</button>
+  <button mat-raised-button color="accent" (click)="animerEnBoucle(false)">Animer en boucle</button>
   <div class="square" style="background-color: red;" [@shake]="ng_shake"></div>
 
   <div [@bounce]="ng_bounce" class="square" style="background-color: green;"></div>
@@ -11,5 +11,5 @@
 <div style="padding: 20px">
   <h1>Animation CSS</h1>
   <button mat-raised-button color="accent">Faire tourner</button>
-  <div class="square" style="background-color:orange;"></div>
+  <div  class="square" style="background-color:orange;"></div>
 </div>
