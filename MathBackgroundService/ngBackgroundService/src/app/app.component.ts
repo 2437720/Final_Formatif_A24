@@ -56,8 +56,9 @@ export class AppComponent {
   selection = -1;
 
   currentQuestion: MathQuestion | null = null;
+  anwser = "";
 
-  constructor(public account: AccountService, private zone: NgZone) {}
+  constructor(public account: AccountService, private zone: NgZone) { }
 
   selectChoice(choice: number) {
     this.selection = choice;
@@ -114,6 +115,12 @@ export class AppComponent {
         this.currentQuestion = data;
       });
     });
+
+    this.hubConnection.on('anwser', (data) => {
+      this.anwser = data;
+      alert(this.anwser);
+      this.anwser = "";
+    })
 
     this.hubConnection.on('IncreasePlayersChoices', (choiceIndex: number) => {
       this.zone.run(() => {
