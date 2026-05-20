@@ -28,6 +28,7 @@ export class AppComponent {
   ng_shake = 0;
   ng_bounce = 0;
   ng_tada = 0;
+  css_tourner = false;
 
 
   constructor() {
@@ -50,7 +51,7 @@ export class AppComponent {
     }, ShakeAnimationTime * 1000);
 
 
-    if(boucle){
+    if (boucle) {
       this.animerEnBoucle(true);
     }
 
@@ -59,12 +60,26 @@ export class AppComponent {
   animerEnBoucle(boucle: boolean) {
     let timing = ShakeAnimationTime + BounceAnimationTime + TadaAnimationTime;
 
-      this.AnimerUneFois();
-      setTimeout(() => {
-        this.AnimerUneFois(true);
+    this.AnimerUneFois();
+    setTimeout(() => {
+      this.AnimerUneFois(true);
 
-      }, timing * 1000);
-  
+    }, timing * 1000);
+
+
+
+  }
+
+  faireToruner() {
+    this.css_tourner = true;
+    setTimeout(() => {
+
+      this.css_tourner = false;
+
+
+    }, 2 * 1000);
+
+
 
 
   }
